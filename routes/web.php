@@ -191,4 +191,5 @@ Route::middleware(
 	// Маршруты для livesearch при создании/изменении информации об объекте
 	Route::get('/item_product', [ProductController::class, 'search'])->name('products.search');
 	Route::get('/item_vendor', [VendorController::class, 'search'])->name('vendors.search');
+	Route::get('/item_dealer', [DealerController::class, 'search'])->name('dealers.search');
 });

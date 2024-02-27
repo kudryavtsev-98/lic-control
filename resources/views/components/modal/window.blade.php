@@ -17,6 +17,10 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             {{ $slot }}
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Закрыть') }}</button>
+            </div>
         </div>
     </div>
 </div>
