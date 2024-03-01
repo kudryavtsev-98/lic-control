@@ -18,7 +18,10 @@ return new class extends Migration
             $table->timestamps();
 
             $table->string('name')->index();
-            $table->string('type')->nullable()->comment('Аппаратный/программый ключ');
+
+            $table->string('type_id');
+            $table->foreign('type_id')->references('id')->on('key_types')->nullOnDelete();
+
             $table->foreignId('host_id')->nullable()->constrained()->nullOnDelete();
 
             $table->text('note')->nullable();

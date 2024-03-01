@@ -33,19 +33,19 @@
 									
 									<tr>
 										<x-raw-title>
-											<x-label required>
+											<x-label required for="name">
 												{{ __('Название') }}
 											</x-label>
 										</x-raw-title>
 										<x-create.value>
-											<x-input type="text" name="name" placeholder="Обязательно" autofocus/>
+											<x-input type="text" name="name" id="name" placeholder="Обязательно" autofocus autocomplete="off"/>
 										</x-create.value>
 									</tr>
 
 									{{-- Выбор продукта --}}
 									<tr>
 										<x-raw-title>
-											<x-label>
+											<x-label for="product_id">
 												{{ __('Продукт') }}
 											</x-label>
 										</x-raw-title>
@@ -69,39 +69,10 @@
 										</x-create.value>
 									</tr>
 
-									{{-- Выбор вендора --}}
-									<tr>
-										<x-raw-title>
-											<x-label>
-												{{ __('Вендор') }}
-											</x-label>
-										</x-raw-title>
-										<x-create.value>
-											<x-input name='vendor_id' id='vendor_id' hidden/>
-											<x-input id='vendor_name' placeholder="Название вендора" disabled></x-input>
-
-											<!-- Button trigger modal -->
-											<x-choise type="button" class="btn-sm" data-toggle="modal" data-target="#vendorModal">
-												{{ __('Выбрать') }}
-											</x-choise>
-
-											<!-- Modal -->
-											<x-modal.window id="vendorModal">
-												<x-modal.header search_id="search_vendor">
-													{{ __('Укажите дилера') }}
-												</x-modal.header>
-
-												<x-modal.body search_list_id="search_list_vendor"></x-modal.body>
-											</x-modal.window>
-
-										</x-create.value>
-									</tr>
-									
-
 									{{-- Выбор дилера --}}
 									<tr>
 										<x-raw-title>
-											<x-label>
+											<x-label for="dealer_id">
 												{{ __('Дилер') }}
 											</x-label>
 										</x-raw-title>
@@ -123,6 +94,38 @@
 												<x-modal.body search_list_id="search_list_dealer"></x-modal.body>
 											</x-modal.window>
 
+										</x-create.value>
+									</tr>
+
+									{{-- Выбор типа --}}
+									<tr>
+										<x-raw-title>
+											<x-label required for="license_type_id">
+												{{ __('Тип') }}
+											</x-label>
+										</x-raw-title>
+										<x-create.value>
+											<select class="form-control" id="license_type_id">
+												@foreach ($licenseTypes as $item)
+													<option value={{ $item['id'] }}>{{ __($item['text']) }}</option>
+												@endforeach
+											</select>
+										</x-create.value>
+									</tr>
+
+									{{-- Выбор метрики --}}
+									<tr>
+										<x-raw-title>
+											<x-label required for="license_metric_id">
+												{{ __('Метрика') }}
+											</x-label>
+										</x-raw-title>
+										<x-create.value>
+											<select class="form-control" id="license_metric_id">
+												@foreach ($licenseMetrics as $item)
+													<option value={{ $item['id'] }}>{{ __($item['text']) }}</option>
+												@endforeach
+											</select>
 										</x-create.value>
 									</tr>
 									
@@ -247,20 +250,9 @@
 			$('#productModal').modal({
 				show: false,
 			});
-			$('#vendorModal').modal({
-				show: false,
-			});
 			$('#dealerModal').modal({
 				show: false,
 			});
 		</script>
-		{{-- <script>
-			function vendorSearch() {
-				$(".vendor-item").on("click", function() {
-					$(' . $formField . ').val(' . $row->id . ');
-					$(' . $clientField . ').val(' . $inputValue . ');
-				});
-			}
-		</script> --}}
 	@endpush
 @endsection

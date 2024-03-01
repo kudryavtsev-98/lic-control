@@ -13,14 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('hosts', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
 
             $table->string('name')->index()->unique();
-            $table->foreignId('vendor_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('work_group_id')->nullable()->constrained()->nullOnDelete();
+            $table->string('ip')->nullable()->unique();
 
-            $table->timestamps();
+            $table->string('type_id');
+            $table->foreign('type_id')->references('id')->on('host_types')->nullOnDelete();
+
+            $table->text('description')->nullable();
         });
     }
 
@@ -31,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('hosts');
     }
 };

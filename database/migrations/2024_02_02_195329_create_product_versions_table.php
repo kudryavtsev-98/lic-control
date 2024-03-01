@@ -17,13 +17,12 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->string('name')->index()->index();
+            $table->string('name')->index();
             $table->foreignId('product_id')->nullable()->constrained()->nullOnDelete();
-            
-            $table->string('version')->nullable();
-            $table->string('edition')->nullable()->comment('Компектация');
-            $table->boolean('active')->default('true');
 
+            $table->string('version')->nullable();
+            $table->string('edition')->nullable()->comment('Комплектация');
+            $table->boolean('active')->default('true');
         });
     }
 

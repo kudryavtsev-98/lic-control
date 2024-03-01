@@ -19,8 +19,13 @@ return new class extends Migration
             $table->string('name')->index();
             $table->foreignId('product_version_id')->nullable()->constrained()->nullOnDelete();
             $table->boolean('active')->default('true');
-            $table->foreignId('license_type_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('license_metric_id')->nullable()->constrained()->nullOnDelete();
+
+            $table->string('type_id');
+            $table->foreign('type_id')->references('id')->on('license_types')->nullable()->nullOnDelete();
+
+            $table->string('metric_id');
+            $table->foreign('metric_id')->references('id')->on('license_metrics')->nullable()->nullOnDelete();
+
             $table->foreignId('key_id')->nullable()->constrained()->nullOnDelete();
 
             $table->text('note')->nullable();

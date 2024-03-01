@@ -9,7 +9,6 @@ class ProductController extends Controller
 {
     public function index()
     {
-
         // return 'Страница списка постов';
 
         return view('products.index');
@@ -17,31 +16,26 @@ class ProductController extends Controller
 
     public function create()
     {
-
         return 'Страница создания поста';
     }
 
     public function store()
     {
-
         return 'Запрос создания поста';
     }
 
     public function show($product)
     {
-
         return "Страница просмотра поста #{$product}";
     }
 
     public function edit($product)
     {
-
         return "Страница изменения поста #{$product}";
     }
 
     public function update()
     {
-
         return 'Запрос на изменение поста';
     }
 
@@ -52,7 +46,6 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-
         if ($request->ajax()) {
 
             $data = Product::where('id', 'ILIKE', '%' . $request->search . '%')

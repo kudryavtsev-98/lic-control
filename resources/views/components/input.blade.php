@@ -3,4 +3,5 @@
 ])->merge([
   'type' => 'text',
   'hidden' => false,
+  'autocomplete' => 'off',
 ]) }}>

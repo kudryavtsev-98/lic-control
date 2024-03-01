@@ -11,6 +11,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\StartController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\VersionController;
+use App\Http\Controllers\WorkGroupController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -192,4 +193,8 @@ Route::middleware(
 	Route::get('/item_product', [ProductController::class, 'search'])->name('products.search');
 	Route::get('/item_vendor', [VendorController::class, 'search'])->name('vendors.search');
 	Route::get('/item_dealer', [DealerController::class, 'search'])->name('dealers.search');
+	Route::get('/item_purchase', [PurchaseController::class, 'search'])->name('purchases.search');
+	Route::get('/item_version', [VersionController::class, 'search'])->name('versions.search');
+	Route::get('/item_host', [HostController::class, 'search'])->name('hosts.search');
+	Route::get('/item_key', [KeyController::class, 'search'])->name('keys.search');
 });

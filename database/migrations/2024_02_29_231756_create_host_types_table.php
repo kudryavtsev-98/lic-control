@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('hosts', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('host_types', function (Blueprint $table) {
+            $table->string('id')->primary()->unique();
+            $table->string('name');
 
-            $table->string('name')->index();
-            $table->string('ip')->nullable();
-            $table->string('type')->default('server')->comment('Тип устройства (Сервер/Локальная машина)');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hosts');
+        Schema::dropIfExists('host_types');
     }
 };

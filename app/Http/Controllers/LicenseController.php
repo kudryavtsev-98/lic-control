@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LicenseMetric;
+use App\Models\LicenseType;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -30,7 +32,11 @@ class LicenseController extends Controller
 
     public function create()
     {
-        return view('licenses.create');
+        $licenseTypes = LicenseType::all(['id', 'text'])->toArray();
+        $licenseMetrics = LicenseMetric::all(['id', 'text'])->toArray();
+
+        // dd($licenseMetrics);
+        return view('licenses.create', compact('licenseTypes', 'licenseMetrics'));
     }
 
     public function store()

@@ -14,13 +14,13 @@
                 <x-card-body>
                     <x-form action="{{ route('login.store') }}" method="POST">
                         <x-form-item>
-                            <x-label required>{{ __('Email') }}</x-label>
-                            <x-input type="email" name="email" autofocus/>
+                            <x-label required for="email">{{ __('Email') }}</x-label>
+                            <x-input type="email" name="email" id="email" autofocus autocomplete="on"/>
                         </x-form-item>
                         
                         <x-form-item>
-                            <x-label required>{{ __('Пароль') }}</x-label>
-                            <x-input type="password" name="password"/>
+                            <x-label required for="password">{{ __('Пароль') }}</x-label>
+                            <x-input type="password" name="password" id="password" autocomplete="current-password"/>
                         </x-form-item>
 
                         <x-form-item>
