@@ -20,9 +20,12 @@ class DatabaseSeeder extends Seeder
             DealerSeeder::class,
             ProductSeeder::class,
             HostTypeSeeder::class,
+            HostRoleSeeder::class,
             HostSeeder::class,
             KeyTypeSeeder::class,
-            // KeySeeder::class,
+            KeyFamilySeeder::class,
+            KeyModelSeeder::class,
+            KeySeeder::class,
             LicenseTypeSeeder::class,
             LicenseMetricSeeder::class
         ]);

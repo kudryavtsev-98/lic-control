@@ -32,8 +32,8 @@ class LicenseController extends Controller
 
     public function create()
     {
-        $licenseTypes = LicenseType::all(['id', 'text'])->toArray();
-        $licenseMetrics = LicenseMetric::all(['id', 'text'])->toArray();
+        $licenseTypes = LicenseType::all(['id', 'name'])->toArray();
+        $licenseMetrics = LicenseMetric::all(['id', 'name']);
 
         // dd($licenseMetrics);
         return view('licenses.create', compact('licenseTypes', 'licenseMetrics'));

@@ -107,7 +107,7 @@
 										<x-create.value>
 											<select class="form-control" id="license_type_id">
 												@foreach ($licenseTypes as $item)
-													<option value={{ $item['id'] }}>{{ __($item['text']) }}</option>
+													<option value={{ $item['id'] }}>{{ __($item['name']) }}</option>
 												@endforeach
 											</select>
 										</x-create.value>
@@ -123,7 +123,7 @@
 										<x-create.value>
 											<select class="form-control" id="license_metric_id">
 												@foreach ($licenseMetrics as $item)
-													<option value={{ $item['id'] }}>{{ __($item['text']) }}</option>
+													<option value={{ $item['id'] }}>{{ __($item['name']) }}</option>
 												@endforeach
 											</select>
 										</x-create.value>

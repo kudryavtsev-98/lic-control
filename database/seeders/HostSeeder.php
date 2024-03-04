@@ -20,6 +20,7 @@ class HostSeeder extends Seeder
             'name' => 'server2001.dom.ru',
             'ip' => '127.0.0.1',
             'type_id' => 'virtual',
+            'role_id' => 'server',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -27,6 +28,7 @@ class HostSeeder extends Seeder
             'name' => 'local1001.dom.ru',
             'ip' => '127.0.0.2',
             'type_id' => 'physical',
+            'role_id' => 'local',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -34,6 +36,7 @@ class HostSeeder extends Seeder
             'name' => 'local1002.dom.ru',
             'ip' => '127.0.0.3',
             'type_id' => 'physical',
+            'role_id' => 'local',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

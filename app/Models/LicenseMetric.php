@@ -9,9 +9,12 @@ class LicenseMetric extends Model
 {
     use HasFactory;
 
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     protected $fillable = [
 
-        'id', 'name', 'text',
+        'id', 'name',
         'created_at', 'updated_at',
 
     ];
